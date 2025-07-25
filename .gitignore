@@ -1,2 +1,7 @@
 /public/uploads/
 .env
+/public/uploads/
+/public/auth.zip
+/public/backup/
+/public/backend/
+/public/theme/
