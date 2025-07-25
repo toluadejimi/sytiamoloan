@@ -299,7 +299,7 @@ if (!function_exists('show_navigation')) {
 
 if (!function_exists('buildNavigation')) {
 
-    function buildNavigation($navigation_items, $main_class = '', $nav_link_class = '', $dropdown_1_class = '', $dropdown_2_class = '', $icon_type, $currentParent = 0, $currLevel = 0, $prevLevel = -1) {
+    function buildNavigation($navigation_items, $icon_type, $main_class = '', $nav_link_class = '', $dropdown_1_class = '', $dropdown_2_class = '', $currentParent = 0, $currLevel = 0, $prevLevel = -1){
         foreach ($navigation_items as $nav_item) {
             if ($currentParent == $nav_item->parent_id) {
 
