@@ -282,35 +282,10 @@ class UserApiController extends Controller
         
         
         try{
-            
 
-        // $curl = curl_init();
-        
-        // curl_setopt_array($curl, array(
-        //   CURLOPT_URL => '',
-        //   CURLOPT_RETURNTRANSFER => true,
-        //   CURLOPT_ENCODING => '',
-        //   CURLOPT_MAXREDIRS => 10,
-        //   CURLOPT_TIMEOUT => 0,
-        //   CURLOPT_FOLLOWLOCATION => true,
-        //   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        //   CURLOPT_CUSTOMREQUEST => 'GET',
-        //   CURLOPT_HTTPHEADER => array(
-        //     '',
-        //     ': '
-        //   ),
-        // ));
-        
-            
-        // $var = curl_exec($curl);
-        // dd($var);
 
-        // curl_close($curl);
-
-        // $var = json_decode($var);
-                    
+            $key = env('FKEY');
         $curl = curl_init();
-        
         curl_setopt_array($curl, array(
           CURLOPT_URL => 'https://api.flutterwave.com/v3/banks/NG',
           CURLOPT_RETURNTRANSFER => true,
@@ -320,11 +295,10 @@ class UserApiController extends Controller
           CURLOPT_FOLLOWLOCATION => true,
           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
           CURLOPT_CUSTOMREQUEST => 'GET',
-          CURLOPT_POSTFIELDS => 'email=admin%40admin.com&password=123456',
           CURLOPT_HTTPHEADER => array(
             'Accept: application/json',
             'Content-Type: application/x-www-form-urlencoded',
-            'Authorization: Bearer FLWSECK-043cf4e9dd848683c6b157c234ba2fb8-X'
+            "Authorization: Bearer $key"
           ),
         ));
         
@@ -336,9 +310,6 @@ class UserApiController extends Controller
 
 
         $status = $var->status ?? null;
-        
-
-        
 
 
         if($status == 'success'){ 
@@ -368,9 +339,9 @@ class UserApiController extends Controller
                 
                 
         }catch( \Exception $e ){
-            
+
             return $e->getMessage();
-            
+
         }
         
         
